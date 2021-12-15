@@ -1,3 +1,8 @@
+/**
+ * This Code is running on Jeff's computer
+ */
+
+
 // load express
 const express = require('express');
 
@@ -8,6 +13,7 @@ const app = express();
 
 // a shortcut to setup endpoints for
 // GET /index.html
+// GET /anotherone...
 app.use(express.static('server/public'));
 
 
@@ -27,6 +33,18 @@ app.get('/space-jams', (req, res) => {
     `)
 });
 
+// GET /comments endpoint
+app.get('/comments', (req, res) => {
+    console.log('in GET /comments');
+    
+    res.send([
+        {
+            author:     'Ken',
+            message:    'New Space Jams sux, 1996 ftw'
+        }
+    ])
+
+});
 
 // listen on port 5000
 const port = 5000;

@@ -1,6 +1,8 @@
 # Woodall Express
  - npm = Node Package Manager
- - json = JS object notation
+ 
+- json = JS object notation
+--------------------
  start
  - npm init --yes
  then
@@ -10,7 +12,7 @@
  - create a new file ".gitignore", in side write node_modules/
 
 require('./filename') looking inside it local folder/file
-requore('filename') looking outside it folder
+require('filename') looking outside it folder
 
 run your server on browser
 - localhost: port name goes here
@@ -20,3 +22,7 @@ run your server on browser
 under the first "scripts" in package.json add another "script"
 - "script": "node server/server.js" 
 then in terminal run npm start
+--------------------
+
+GET  /comments
+👆
