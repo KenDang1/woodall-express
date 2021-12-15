@@ -21,8 +21,13 @@ run your server on browser
 
 under the first "scripts" in package.json add another "script"
 - "script": "node server/server.js" 
+or "script": "nodemon server/server.js"  when you npm install nodemon (npm install nodemon)
 then in terminal run npm start
 --------------------
 
 GET  /comments
 👆
+
+- npm install body-parser
+
+

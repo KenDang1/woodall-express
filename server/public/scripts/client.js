@@ -8,7 +8,7 @@ function onReady() {
     console.log('So damn ready');
 
     $('button').on('click', onClick);
-
+    $('#commentForm').on('submit', onAddComment);
 
     // TODO
     // write some code to get the data from the 
@@ -38,6 +38,32 @@ function onReady() {
     `)
 
 };
+
+function onAddComment(event) {
+    event.preventDefault();
+    let comment = {
+        author:     $('#authorInput').val(),
+        message:    $('#messageInput').val()
+    }
+
+// send data to server
+$.ajax({
+    method: 'POST',
+    url:    '/comments',
+    // send the comment to the server
+    // in the request "body"
+    data:   comment
+})
+    .then((reponse) => {
+        console.log('POST reponse', reponse);
+        
+        // refresh..
+        // GET /comments from the server again
+        // and render to the DOM
+        refresh();
+    })
+
+};    
 
     // render function
     function render(comments) {

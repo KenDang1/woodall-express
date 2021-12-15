@@ -8,13 +8,22 @@ const express = require('express');
 
 // express is a function
 const app = express();
-
+const bodyParser = require('body-parser');
 
 
 // a shortcut to setup endpoints for
 // GET /index.html
 // GET /anotherone...
 app.use(express.static('server/public'));
+
+
+
+// don't fot body-parser!!
+// https://i.imgur.com/qs0INo4.jpg
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
 
 
 // setup a GET /space-jams endpoint
@@ -45,6 +54,26 @@ app.get('/comments', (req, res) => {
     ])
 
 });
+
+let comments = [ 
+    {
+
+
+    }
+];
+
+// POST /comments endpoint
+app.post('/comments', (req, res) => {
+    console.log('in POST /comments', req.body);
+
+    //TODO: save the comment to the server
+
+
+    // send back a 👍
+    res.sendStatus(201);
+});
+
+
 
 // listen on port 5000
 const port = 5000;
